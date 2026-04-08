@@ -1,7 +1,7 @@
 'use client'
 
-import { Card } from '@/components/ui/card'
 import { Coffee, UtensilsCrossed, Flame } from 'lucide-react'
+import Reveal from '@/components/reveal'
 
 export default function MenuSection() {
   const menuItems = [
@@ -84,7 +84,7 @@ export default function MenuSection() {
     <section id="menu" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section header */}
-        <div className="mb-20">
+        <Reveal className="mb-20">
           <span className="text-primary font-black text-sm uppercase tracking-widest">Our Collections</span>
           <h2 className="text-5xl sm:text-6xl font-black text-foreground mt-3 mb-6 leading-tight">
             Taste Our Specialty
@@ -92,14 +92,14 @@ export default function MenuSection() {
           <p className="text-lg text-muted-foreground max-w-2xl">
             Handpicked flavors from our kitchen. Every item is a crafted experience.
           </p>
-        </div>
+        </Reveal>
 
         {/* Menu grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {menuItems.map((section, idx) => {
             const Icon = section.icon
             return (
-              <div key={idx} className="group">
+              <Reveal key={idx} delayMs={idx * 90} className="group">
                 {/* Section card header */}
                 <div className="flex items-center gap-4 mb-8 pb-6 border-b-2 border-border group-hover:border-primary transition-colors">
                   <div className="bg-primary/15 p-4 rounded-xl group-hover:bg-primary group-hover:scale-110 transition-all">
@@ -117,20 +117,20 @@ export default function MenuSection() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             )
           })}
         </div>
 
         {/* View full menu button */}
-        <div className="text-center mt-16">
+        <Reveal delayMs={150} className="text-center mt-16">
           <a href="#contact" className="inline-flex items-center gap-3 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl transition-all font-bold text-lg group hover:scale-105 active:scale-95">
             View Complete Menu
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
